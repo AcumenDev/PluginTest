@@ -28,22 +28,23 @@ const list<string> PluginManager::GetPluginList() {
 
 }
 
-PLPLUGIN PluginManager::LoadPlugin(string name) {
+IPlugin * PluginManager::LoadPlugin(string name) {
 
 }
 
-bool PluginManager::UnloadPlugin(PLPLUGIN plugin) {
-    return FreeLibrary(plugin);
+bool PluginManager::UnloadPlugin(IPlugin * plugin) {
+
+    //return FreeLibrary(plugin);
 }
 
-PLPROC PluginManager::LoadProcedureFromPlugin(PLPLUGIN plugin, string name) {
-    return GetProcAddress(plugin, name.c_str());
-//    if (proc == NULL)
-//    {
-//        cout << "Not found " + name << endl;
-//    }
-//    else
-//    {
-//        return proc;
-//    }
-}
+//PLPROC PluginManager::LoadProcedureFromPlugin(PLPLUGIN plugin, string name) {
+//    return GetProcAddress(plugin, name.c_str());
+////    if (proc == NULL)
+////    {
+////        cout << "Not found " + name << endl;
+////    }
+////    else
+////    {
+////        return proc;
+////    }
+//}

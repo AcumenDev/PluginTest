@@ -3,18 +3,18 @@
 #include "IPlugin.h"
 using namespace std;
 
-typedef IPlugin * (*LPPLUGINGETNAME)(void);
+typedef void * (*LOADPPLUGIN)(void);
 
 int main() {
     HMODULE sdl_library = LoadLibrary("plugin/libPlugin.dll");
     if (sdl_library == NULL) {
         cout << "Not loading!" << endl;
     } else {
-        auto proc = (LPPLUGINGETNAME)GetProcAddress(sdl_library,"LoadPlugin");
+        auto proc = (LOADPPLUGIN)GetProcAddress(sdl_library,"LoadPlugin");
         if (proc == NULL) {
             cout << "Not find GetName!" << endl;
         } else {
-            IPlugin * plugin = proc();
+            IPlugin * plugin = ( IPlugin *)proc();
             cout << plugin->GetName() << endl;
 
             // cast initializer to its proper type and use

@@ -3,17 +3,25 @@
 #include <iostream>
 #include <list>
 #include <map>
+
+#ifdef WINDOWS
+#include "PluginWindows.h"
+#else
+#ifdef UNIX
+#include "PluginUnix.h"
+#endif
+#endif
 //
 //#ifdef _WIN32
-#include <windows.h>
+//#include <windows.h>
 //#else
 //#include <dlfcn.h>
 //#endif
 
 
 //#ifdef _WIN32
-typedef HMODULE PLPLUGIN;
-typedef FARPROC PLPROC;
+//typedef HMODULE PLPLUGIN;
+//typedef FARPROC PLPROC;
 //#else
 //typedef void * PLPLUGIN;
 //typedef void * PLPROC;
@@ -36,10 +44,10 @@ public:
     bool RefreshPluginList();
     const list<string> GetPluginList();
 
-    PLPLUGIN LoadPlugin(string name);
-    bool UnloadPlugin(PLPLUGIN plugin);
+    IPlugin * LoadPlugin(string name);
+    bool UnloadPlugin(IPlugin * plugin);
 
-    PLPROC LoadProcedureFromPlugin(PLPLUGIN plugin, string name);
+  //  PLPROC LoadProcedureFromPlugin(PLPLUGIN plugin, string name);
 
 protected:
 private:
