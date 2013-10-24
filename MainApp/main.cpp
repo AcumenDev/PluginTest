@@ -5,22 +5,15 @@ using namespace std;
 
 typedef IPlugin * (*LPPLUGINGETNAME)(void);
 
-int main()
-{
+int main() {
     HMODULE sdl_library = LoadLibrary("plugin/libPlugin.dll");
-    if (sdl_library == NULL)
-    {
+    if (sdl_library == NULL) {
         cout << "Not loading!" << endl;
-    }
-    else
-    {
+    } else {
         auto proc = (LPPLUGINGETNAME)GetProcAddress(sdl_library,"LoadPlugin");
-        if (proc == NULL)
-        {
+        if (proc == NULL) {
             cout << "Not find GetName!" << endl;
-        }
-        else
-        {
+        } else {
             IPlugin * plugin = proc();
             cout << plugin->GetName() << endl;
 
@@ -29,6 +22,6 @@ int main()
     }
 
 
-   // cout << "Hello world!" << endl;
+    // cout << "Hello world!" << endl;
     return 0;
 }

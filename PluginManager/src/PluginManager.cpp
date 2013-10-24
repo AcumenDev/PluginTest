@@ -1,52 +1,42 @@
 #include "PluginManager.h"
 
-PluginManager::PluginManager()
-{
+PluginManager::PluginManager() {
     //ctor
 }
 
-PluginManager::~PluginManager()
-{
+PluginManager::~PluginManager() {
     //dtor
 }
 
-void PluginManager::AddPluginFolder(string folder)
-{
+void PluginManager::AddPluginFolder(string folder) {
     _pluginFolder.push_back(folder);
 }
 
-bool PluginManager::RemovePluginFolder(string folder)
-{
+bool PluginManager::RemovePluginFolder(string folder) {
     _pluginFolder.remove(folder);
 }
 
-const list<string> PluginManager::GetPluginFolderList()
-{
+const list<string> PluginManager::GetPluginFolderList() {
     return _pluginFolder;
 }
 
-bool PluginManager::RefreshPluginList()
-{
+bool PluginManager::RefreshPluginList() {
 
 }
 
-const list<string> PluginManager::GetPluginList()
-{
+const list<string> PluginManager::GetPluginList() {
 
 }
 
-PLPLUGIN PluginManager::LoadPlugin(string name)
-{
+PLPLUGIN PluginManager::LoadPlugin(string name) {
 
 }
 
-bool PluginManager::UnloadPlugin(string name)
-{
-
+bool PluginManager::UnloadPlugin(PLPLUGIN plugin) {
+    return FreeLibrary(plugin);
 }
 
-PLPROC PluginManager::LoadProcedureFromPlugin(PLPLUGIN plugin, string name)
-{
+PLPROC PluginManager::LoadProcedureFromPlugin(PLPLUGIN plugin, string name) {
     return GetProcAddress(plugin, name.c_str());
 //    if (proc == NULL)
 //    {

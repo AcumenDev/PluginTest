@@ -2,8 +2,7 @@
 #define IPLUGIN_H
 #include <iostream>
 
-class IPlugin
-{
+class IPlugin {
 public:
     IPlugin() {};
     virtual ~IPlugin() {};
