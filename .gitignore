@@ -17,3 +17,9 @@
 *.depend
 obj/
 bin/
+
+
+#project
+
+*.dll
+*.so
