@@ -1,32 +1,17 @@
-#ifndef IPLUGIN_H
-#define IPLUGIN_H
+#ifndef IPLUGIN_H_INCLUDED
+#define IPLUGIN_H_INCLUDED
 #include <iostream>
-//
-//#ifdef _WIN32
-
-//#else
-//#include <dlfcn.h>
-//#endif
-
-
-//#ifdef _WIN32
-//typedef HMODULE PLPLUGIN;
-//typedef FARPROC PLPROC;
-//#else
-//typedef void * PLPLUGIN;
-//typedef void * PLPROC;
-//#endif
-
-
-
 class IPlugin {
 public:
     IPlugin() {};
-    IPlugin(void * lib) {};
+    IPlugin(std::string patch):_patch(patch) {};
     virtual ~IPlugin() {};
-    virtual void * LoadProcedureFromPlugin(std::string name) = 0 ;
+    virtual bool Load() = 0;
+    virtual bool Unload() = 0;
+    virtual void * ExecProcedure(std::string name) = 0 ;
 protected:
     typedef void * (*LOADPPLUGIN)(void);
+    std::string _patch;
 };
 
-#endif // IPLUGIN_H
+#endif // IPLUGIN_H_INCLUDED

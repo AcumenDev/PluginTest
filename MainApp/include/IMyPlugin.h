@@ -2,10 +2,12 @@
 #define IPLUGIN_H
 #include <iostream>
 
-class IPlugin {
+///Интервейс которые должны реализовывать в dll плагина
+
+class IMyPlugin {
 public:
-    IPlugin() {};
-    virtual ~IPlugin() {};
+    IMyPlugin() {};
+    virtual ~IMyPlugin() {};
     virtual std::string GetName() = 0;
 };
 

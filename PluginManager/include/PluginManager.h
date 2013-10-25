@@ -3,51 +3,24 @@
 #include <iostream>
 #include <list>
 #include <map>
-
-#ifdef WINDOWS
-#include "PluginWindows.h"
-#else
-#ifdef UNIX
-#include "PluginUnix.h"
-#endif
-#endif
-//
-//#ifdef _WIN32
-//#include <windows.h>
-//#else
-//#include <dlfcn.h>
-//#endif
-
-
-//#ifdef _WIN32
-//typedef HMODULE PLPLUGIN;
-//typedef FARPROC PLPROC;
-//#else
-//typedef void * PLPLUGIN;
-//typedef void * PLPROC;
-//#endif
-
+#include "Plugin.h"
 
 using std::list;
 using std::string;
 using std::map;
 
+
+///пока еще не доделал будет знасть катологи с плагинами и знать какие плагины там лежат выдавать их для загрузки
 class PluginManager {
 public:
     PluginManager();
     virtual ~PluginManager();
-
     void AddPluginFolder(string folder);
-    bool RemovePluginFolder(string folder);
+    void RemovePluginFolder(string folder);
     const list<string> GetPluginFolderList();
-
-    bool RefreshPluginList();
+    void RefreshPluginList();
     const list<string> GetPluginList();
-
-    IPlugin * LoadPlugin(string name);
-    bool UnloadPlugin(IPlugin * plugin);
-
-  //  PLPROC LoadProcedureFromPlugin(PLPLUGIN plugin, string name);
+    IPlugin * GetPlugin(string name);
 
 protected:
 private:

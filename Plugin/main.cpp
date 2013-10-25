@@ -1,6 +1,6 @@
-#include "IPlugin.h"
+#include "IMyPlugin.h"
 
-class MyPlugin : public IPlugin {
+class MyPlugin : public IMyPlugin {
 public:
     MyPlugin() {};
     virtual ~MyPlugin() {};
@@ -11,9 +11,9 @@ public:
 
 extern "C"
 {
-    __declspec(dllexport) IPlugin * LoadPlugin();
+    __declspec(dllexport) IMyPlugin * LoadPlugin();
 };
 
-IPlugin * LoadPlugin() {
+IMyPlugin * LoadPlugin() {
     return new MyPlugin();
 }
