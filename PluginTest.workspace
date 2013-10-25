@@ -3,6 +3,7 @@
 	<Workspace title="PluginTest">
 		<Project filename="MainApp/MainApp.cbp">
 			<Depends filename="Plugin/Plugin.cbp" />
+			<Depends filename="PluginManager/PluginManager.cbp" />
 		</Project>
 		<Project filename="Plugin/Plugin.cbp" />
 		<Project filename="PluginManager/PluginManager.cbp" />

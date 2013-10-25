@@ -13,7 +13,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -23,7 +22,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -34,16 +32,13 @@
 			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add option="-DWINDOWS" />
 			<Add directory="include" />
 		</Compiler>
 		<Unit filename="include/IPlugin.h" />
+		<Unit filename="include/Plugin.h" />
 		<Unit filename="include/PluginManager.h" />
-		<Unit filename="include/PluginUnix.h" />
-		<Unit filename="include/PluginWindows.h" />
+		<Unit filename="src/Plugin.cpp" />
 		<Unit filename="src/PluginManager.cpp" />
-		<Unit filename="src/PluginUnix.cpp" />
-		<Unit filename="src/PluginWindows.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

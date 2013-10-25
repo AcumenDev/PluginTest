@@ -7,7 +7,7 @@ using namespace std;
 typedef void * (*LOADPPLUGIN)(void);
 
 int main() {
-    ///Стандартная загрузка
+    ///РЎС‚Р°РЅРґР°СЂС‚РЅР°СЏ Р·Р°РіСЂСѓР·РєР°
     HMODULE sdl_library = LoadLibrary("plugin/libPlugin.dll");
     if (sdl_library == NULL) {
         cout << "Not loading!" << endl;
@@ -25,7 +25,7 @@ int main() {
             // cast initializer to its proper type and use
         }
     }
-///написал менеджера
+///РЅР°РїРёСЃР°Р» РјРµРЅРµРґР¶РµСЂР°
     PluginManager pm;
 
     IPlugin * pl = pm.GetPlugin("plugin/libPlugin.dll");
