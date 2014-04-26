@@ -8,7 +8,9 @@ class IMyPlugin {
 public:
     IMyPlugin() {};
     virtual ~IMyPlugin() {};
-    virtual std::string GetName() = 0;
+    virtual std::string GetName() {
+        return "Unknown plugin";
+    }
 };
 
 #endif // IPLUGIN_H

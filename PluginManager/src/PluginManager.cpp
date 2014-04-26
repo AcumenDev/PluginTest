@@ -23,10 +23,6 @@ void PluginManager::RefreshPluginList() {
 
 }
 
-const list<string> PluginManager::GetPluginList() {
-
-}
-
-IPlugin * PluginManager::GetPlugin(string name) {
+Plugin * PluginManager::GetPlugin(string name) {
     return new Plugin(name);
 }

@@ -19,8 +19,7 @@ public:
     void RemovePluginFolder(string folder);
     const list<string> GetPluginFolderList();
     void RefreshPluginList();
-    const list<string> GetPluginList();
-    IPlugin * GetPlugin(string name);
+    Plugin * GetPlugin(string name);
 
 protected:
 private:

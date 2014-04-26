@@ -9,6 +9,7 @@ public:
     virtual bool Load() = 0;
     virtual bool Unload() = 0;
     virtual void * ExecProcedure(std::string name) = 0 ;
+    virtual void * LoadObject() = 0 ;
 protected:
     typedef void * (*LOADPPLUGIN)(void);
     std::string _patch;

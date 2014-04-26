@@ -4,10 +4,12 @@
 #include "PluginManager.h"
 using namespace std;
 
-typedef void * (*LOADPPLUGIN)(void);
+
 
 int main() {
     ///Стандартная загрузка
+    typedef void * (*LOADPPLUGIN)(void);
+
     HMODULE sdl_library = LoadLibrary("plugin/libPlugin.dll");
     if (sdl_library == NULL) {
         cout << "Not loading!" << endl;
@@ -28,10 +30,11 @@ int main() {
 ///написал менеджера
     PluginManager pm;
 
-    IPlugin * pl = pm.GetPlugin("plugin/libPlugin.dll");
+    Plugin * pl = pm.GetPlugin("plugin/libPlugin.dll");
 
     if(pl->Load()) {
-        IMyPlugin * plugin1 = ( IMyPlugin *)pl->ExecProcedure("LoadPlugin");
+        auto  plugin1 =(IMyPlugin*) pl->ExecProcedure("LoadPlugin");
+        // auto  plugin1 = pl->LoadObject<IMyPlugin>("LoadPlugin");  ///Заставить это работать
         cout << plugin1->GetName() << endl;
         delete plugin1;
         pl->Unload();
