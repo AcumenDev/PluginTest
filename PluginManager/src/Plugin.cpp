@@ -23,8 +23,3 @@ bool Plugin::Load() {
     }
     return true;
 }
-
-template<class T> T * Plugin::LoadObject(std::string name) {
-    auto proc = (LOADPPLUGIN)GetProcAddress(_lib, name.c_str());
-    return ( T*)proc();
-}

@@ -20,11 +20,8 @@ int main() {
         } else {
             IMyPlugin * plugin = ( IMyPlugin *)proc();
             cout << plugin->GetName() << endl;
-            //
             delete plugin;
             FreeLibrary(sdl_library);
-            //   cout << plugin->GetName() << endl;
-            // cast initializer to its proper type and use
         }
     }
 ///написал менеджера
@@ -33,8 +30,7 @@ int main() {
     Plugin * pl = pm.GetPlugin("plugin/libPlugin.dll");
 
     if(pl->Load()) {
-        auto  plugin1 =(IMyPlugin*) pl->ExecProcedure("LoadPlugin");
-        // auto  plugin1 = pl->LoadObject<IMyPlugin>("LoadPlugin");  ///Заставить это работать
+        auto  plugin1 = pl->LoadObject<IMyPlugin>("LoadPlugin");
         cout << plugin1->GetName() << endl;
         delete plugin1;
         pl->Unload();
